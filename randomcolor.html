@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #000000;
+            color: white;
+        }
+
+        h1 {
+            padding: 8px;
+            text-align: center;
+            border-bottom: 2px solid silver;
+            font-size: 18px;
+        }
+
+
+        div {
+            width: 150px;
+            height: 150px;
+            background-color: rgb(10, 13, 240);
+            color: white;
+            margin: 12px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 2px solid white;
+            user-select: none;
+            cursor: pointer;
+
+
+        }
+
+        #stop {
+            display: none;
+        }
+
+        span {
+            font-size: 25px;
+            font-weight: bold;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Set background color whatever you want !</h1>
+    <div id="start"><span>start</span></div>
+    <div id="stop"><span>stop</span></div>
+</body>
+<script>
+    const startbtn = document.querySelector("#start")
+    const stopbtn = document.querySelector("#stop")
+    const randomColor = function () {
+        const hex = "0123456789ABCDEF"
+        let color = "#"
+        for (let i = 0; i < 6; i++) {
+            color += hex[Math.floor(Math.random() * 16)]
+        }
+        return color
+    }
+    let intervalId;
+    const startChangingcolor = function () {
+        if (!intervalId) {
+
+            intervalId = setInterval(changeBg, 1000)
+        }
+        function changeBg() {
+            document.body.style.backgroundColor = randomColor()
+            startbtn.style.display = "none"
+            stopbtn.style.display = "flex"
+
+        }
+    }
+
+    document.querySelector("#start").addEventListener("click", startChangingcolor)
+    const stopChangingcolor = function () {
+        clearInterval(intervalId)
+        intervalId = null
+        startbtn.style.display = "flex"
+        stopbtn.style.display = "none"
+    }
+    document.querySelector("#stop").addEventListener("click", stopChangingcolor)
+</script>
+
+</html>
