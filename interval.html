@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #result {
+            display: block;
+            width: 200px;
+            background-color: black;
+            color: white;
+            padding: 4px;
+            border-radius: 6px;
+            text-align: center;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Example of setInterval Function in js </h1>
+    <button id="start">start</button>
+    <button id="stop">stop</button>
+    <p id="result">...</p>
+    <br />
+    <br />
+
+</body>
+<script>
+    const startBtn = document.querySelector("#start")
+    const stopBtn = document.getElementById("stop")
+    let interval;
+    const printText = function () {
+        document.querySelector("#result").innerHTML = Math.random()
+
+    }
+    interval = setInterval(printText, 1000, "saurav")
+    startBtn.addEventListener("click", () => {
+        interval = setInterval(printText, 1000)
+    })
+
+
+    stopBtn.addEventListener("click", () => {
+        clearInterval(interval)
+    })
+</script>
+
+</html>

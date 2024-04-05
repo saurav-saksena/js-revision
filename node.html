@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #191515;
+            color: white;
+        }
+
+        .second {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div>monday</div>
+        <div>tuesday</div>
+        <div>wednesday</div>
+        <div>thursday</div>
+        <div class="day">friday</div>
+        <div>saturday</div>
+        <div>sunday</div>
+    </div>
+    <div style="margin-top: 40px;">
+        <div>first div</div>
+        <div>second div</div>
+        <div>third div</div>
+        <div>fourth div</div>
+    </div>
+    <script>
+        const givenElement = document.querySelector(".day")
+        // givenElement.style.color = "green"
+        const parentOfGiven = givenElement.parentElement
+        const childElement = parentOfGiven.children
+        for (let i = 0; i < childElement.length; i++) {
+            if ((i + 1) % 2 === 0) {
+                childElement[i].style.color = "yellow"
+                childElement[i].style.fontWeight = "bold"
+            } else {
+                childElement[i].style.color = "pink"
+            }
+
+        }
+
+        const siblingParent = parentOfGiven.nextElementSibling;
+        siblingParent.firstElementChild.style.fontSize = "20px"
+        const newDiv = document.createElement("div")
+        newDiv.appendChild(document.createTextNode("fifth div"))
+        siblingParent.appendChild(newDiv)
+        siblingParent.lastElementChild.style.fontSize = "24px"
+
+
+
+    </script>
+</body>
+
+</html>

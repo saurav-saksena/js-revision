@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+
+        span {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        This is a container !
+        <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, ex.</h1>
+        <span>My name is Saurav</span>
+    </div>
+    <h3 name="hell">helol</h3>
+    <script>
+        for (let i = 0; i < 9; i++) {
+            let element = document.createElement("h3")
+            let textNode = document.createTextNode(`This is text ${(Math.random() * 9999999).toString().slice(0, 6)}`)
+            element.appendChild(textNode)
+            document.body.appendChild(element)
+        }
+    </script>
+</body>
+
+</html>

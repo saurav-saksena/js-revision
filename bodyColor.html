@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            transition: 0.7s all;
+        }
+
+        .container {
+            height: 100vh;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            align-items: center;
+            border-radius: 50%;
+            border: 1px solid white;
+            background-color: white;
+        }
+
+        .color {
+            width: 210px;
+            height: 210px;
+            border-radius: 50%;
+            margin: 10px;
+            transition: 1s all;
+        }
+
+        #red {
+            background-color: red;
+        }
+
+        #green {
+            background-color: green;
+        }
+
+        #blue {
+            background-color: blue;
+        }
+
+        #black {
+            background-color: black;
+        }
+
+        #white {
+            background-color: white;
+
+        }
+
+        #yellow {
+            background-color: yellow;
+        }
+
+        span {
+            display: block;
+            width: 120px;
+            margin: 2px auto;
+            background-color: black;
+            color: white;
+            border: 1px solid white;
+            padding: 6px;
+            text-align: center;
+            border-radius: 6px;
+            cursor: pointer;
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+    <span onclick="small()">-- : --</span>
+    <div class="container">
+        <div id="white" class="color"></div>
+        <div id="red" class="color"></div>
+        <div id="green" class="color"></div>
+        <div id="blue" class="color"></div>
+        <div id="black" class="color"></div>
+        <div id="yellow" class="color"></div>
+    </div>
+</body>
+<script>
+    const moreColor = ["#0fd392", "#d40af3", "black", "#f30a86", "white", "#027c6e"]
+    const buttons = document.querySelectorAll(".color")
+    const body = document.querySelector("body")
+    const container = document.querySelector(".container")
+    let bigSize = true
+    let span = document.querySelector("span")
+    buttons.forEach((button, i) => {
+        button.addEventListener("click", (e) => {
+            // console.log(new Date(e.timeStamp).toLocaleTimeString())
+            // console.log(e)
+            body.style.backgroundColor = e.target.id
+            span.style.backgroundColor = "transparent"
+            span.style.borderColor = moreColor[i]
+            container.style.backgroundColor = moreColor[i]
+
+        })
+    })
+    // function small() {
+    //     buttons.forEach(val => {
+    //         if (bigSize) {
+    //             val.style.width = "100px"
+    //             val.style.height = "100px"
+    //         } else {
+    //             val.style.width = "210px"
+    //             val.style.height = "210px"
+    //         }
+
+    //     })
+    //     bigSize = !bigSize
+    // }
+    window.addEventListener("load", () => {
+        setInterval(function () {
+            buttons.forEach(val => {
+                if (bigSize) {
+                    val.style.width = "100px"
+                    val.style.height = "100px"
+                } else {
+                    val.style.width = "210px"
+                    val.style.height = "210px"
+                }
+
+            })
+            bigSize = !bigSize
+        }, 1000)
+    })
+
+    window.addEventListener("load", () => {
+        setInterval(() => {
+            let data = new Date().toLocaleTimeString()
+            document.querySelector("span").innerText = data
+        }, 1000)
+    })
+</script>
+<!-- 8506912712 -->
+
+</html>

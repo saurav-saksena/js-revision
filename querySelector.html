@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="main">
+        <h1 class="saurav">This is exmaple with class "saurav"</h1>
+        <p id="saksena">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil rerum itaque laboriosam, fugiat
+            fugit officia cupiditate maxime voluptatem, dolorem blanditiis optio sed recusandae sit nesciunt esse eius.
+            Quasi, doloribus illum.</p>
+        <h1 class="saurav">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias deleniti ipsa quae dolorem
+            labore libero explicabo dolorum! Reprehenderit suscipit nam ad, non accusantium incidunt nobis debitis est
+            ratione provident sint.</h1>
+        <h4 name="names">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error quidem incidunt dignissimos,
+            cupiditate exercitationem ex quisquam, quo neque magnam quae inventore numquam mollitia doloremque, odit
+            dolores eius. Ad, delectus repudiandae.</h4>
+    </div>
+    <div id="second">
+        <h2>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga, eum?</h2>
+        <h2 class="saurav">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt libero quaerat atque.</h2>
+        <p name="names">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas delectus maxime impedit ut quam,
+            corporis aliquam voluptate? Voluptates atque saepe deleniti praesentium non sequi similique. Ullam
+            asperiores illo consequatur excepturi!</p>
+        <h4 id="saksena">Lorem ipsum dolor sit amet.</h4>
+    </div>
+    <button onclick="fn1()">By Id</button>
+    <button onclick="fn2()">By ClassName</button>
+    <button onclick="fn3()">By Tagname</button>
+    <button onclick="fn4()">By Name</button>
+    <button onclick="fn5()">By querySelector</button>
+    <button onclick="fn6()">By querySelectorAll</button>
+
+    <script>
+        function fn1() {
+            let selectedItem = document.getElementById("saksena");
+            selectedItem.style.backgroundColor = "red"
+            selectedItem.style.color = "white"
+        }
+        function fn2() {
+            let selectedItem = document.getElementsByClassName("saurav")
+            // console.log(selectedItem)
+            for (let i = 0; i < selectedItem.length; i++) {
+                selectedItem[i].style.color = "white"
+                selectedItem[i].style.backgroundColor = "black"
+            }
+
+        }
+        function fn3() {
+            let selectedItem = document.getElementsByTagName("div")
+            for (let i = 0; i < selectedItem.length; i++) {
+                selectedItem[i].style.color = "yellow"
+                selectedItem[i].style.backgroundColor = "blue"
+            }
+        }
+        function fn4() {
+            let selectedItem = document.getElementsByName("names");
+            for (let i = 0; i < selectedItem.length; i++) {
+                // selectedItem[i].style.color = "yellow"
+                selectedItem[i].style.backgroundColor = "pink"
+            }
+        }
+        function fn5() {
+            let selectedItem = document.querySelector("div,h4,#saksena,[name='names']")
+            selectedItem.style.backgroundColor = "green"
+
+        }
+        function fn6() {
+            let selectedItem = document.querySelectorAll("#saksena,.saurav,[name='names']")
+            console.log(selectedItem)
+            for (let i = 0; i < selectedItem.length; i++) {
+                selectedItem[i].style.backgroundColor = "orange"
+                selectedItem[i].style.color = "white"
+            }
+        }
+    </script>
+
+</html>
